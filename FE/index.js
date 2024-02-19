@@ -52,6 +52,15 @@ function createEmployee (){
     },
     
     body:JSON.stringify(nemployee)
+  }).then(response => {
+    if (response.ok) {
+      console.log("Done")
+      return response.json()
+    }else{
+      console.log("This Id already exists")
+      alert("This Id already exists")
+      return response.json()
+    }
   })
   fetchEmployees()
 }

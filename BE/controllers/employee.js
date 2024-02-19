@@ -14,5 +14,10 @@ exports.deleteEmployee = async (req, res, next) => {
 
 // TODO
 exports.createEmployee = async (req, res, next) => {
-  employee.push(req.body)
+  if(employee.some(emp => emp.id === req.body.id)){
+    res.status(300).json({ message:"notDone"})
+  }else{
+    employee.push(req.body)
+    res.status(200).json({ message:"Done"})
+  }
 };
