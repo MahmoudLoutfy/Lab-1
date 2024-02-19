@@ -63,7 +63,7 @@ function deleteEmployee (ID){
   })
   setTimeout(() => {
     fetchEmployees();
-  }, 3);
+  }, 10);
 }
 
 
