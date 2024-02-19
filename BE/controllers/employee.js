@@ -13,4 +13,5 @@ exports.deleteEmployee = async (req, res, next) => {
 
 // TODO
 exports.createEmployee = async (req, res, next) => {
+  employee.push(req.body)
 };
