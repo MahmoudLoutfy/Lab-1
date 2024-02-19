@@ -24,6 +24,8 @@ function fetchEmployees() {
         row.appendChild(deleteCell)
 
         tableBody.appendChild(row)
+
+        deleteButton.addEventListener('click', () => deleteEmployee(idCell.textContent))
       })
     })
     .catch(error => console.error(error))
@@ -44,9 +46,12 @@ function createEmployee (){
 
 // TODO
 function deleteEmployee (){
-  // get id
-  // send id to BE
-  // call fetchEmployees
+  etch('http://localhost:3000/api/v1/employee/' + ID, {
+    method: 'DELETE',
+  })
+  setTimeout(() => {
+    fetchEmployees();
+  }, 3);
 }
 
 fetchEmployees()
