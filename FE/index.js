@@ -24,6 +24,10 @@ function fetchEmployees() {
         row.appendChild(deleteCell)
 
         tableBody.appendChild(row)
+
+        deleteButton.addEventListener('click', () => deleteEmployee(idCell.textContent))
+
+        //document.getElementById("b77").addEventListener("click" , function(){createEmployee()})
       })
     })
     .catch(error => console.error(error))
@@ -32,21 +36,38 @@ function fetchEmployees() {
 // TODO
 // add event listener to submit button
 
+
 // TODO
 // add event listener to delete button
 
 // TODO
 function createEmployee (){
-  // get data from input field
-  // send data to BE
-  // call fetchEmployees
+  let t=document.getElementById("name").value
+  let z=document.getElementById("id").value
+  if(t===""||z===""){return}
+  let nemployee={id:z,name:t}
+  const link= fetch('http://localhost:3000/api/v1/employee',
+  {
+    method: 'POST',
+    headers:{
+      'Content-Type':'application/json'
+    },
+    
+    body:JSON.stringify(nemployee)
+  })
+  fetchEmployees()
 }
 
 // TODO
 function deleteEmployee (){
-  // get id
-  // send id to BE
-  // call fetchEmployees
+  etch('http://localhost:3000/api/v1/employee/' + ID, {
+    method: 'DELETE',
+  })
+  setTimeout(() => {
+    fetchEmployees();
+  }, 3);
 }
+
+
 
 fetchEmployees()
