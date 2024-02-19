@@ -57,8 +57,8 @@ function createEmployee (){
 }
 
 // TODO
-function deleteEmployee (){
-  etch('http://localhost:3000/api/v1/employee/' + ID, {
+function deleteEmployee (ID){
+  fetch('http://localhost:3000/api/v1/employee/' + ID, {
     method: 'DELETE',
   })
   setTimeout(() => {
