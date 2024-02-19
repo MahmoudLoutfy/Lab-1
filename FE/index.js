@@ -26,8 +26,6 @@ function fetchEmployees() {
         tableBody.appendChild(row)
 
         deleteButton.addEventListener('click', () => deleteEmployee(idCell.textContent))
-
-        //document.getElementById("b77").addEventListener("click" , function(){createEmployee()})
       })
     })
     .catch(error => console.error(error))
@@ -35,7 +33,7 @@ function fetchEmployees() {
 
 // TODO
 // add event listener to submit button
-
+document.getElementById("b77").addEventListener("click" , function(){createEmployee()})
 
 // TODO
 // add event listener to delete button
